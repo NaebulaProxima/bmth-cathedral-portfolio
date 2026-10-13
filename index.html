@@ -90,15 +90,41 @@
       <!-- Sacred Geometry Halo with Official BMTH Logo -->
       <div class="sacred-geometry">
         <svg viewBox="0 0 400 400" class="halo-circle">
+          <defs>
+            <!-- Filter: Strips the black background from BMTH_logo.png and maps the artwork into luminous antique gold and cathedral crimson with sacred glow -->
+            <filter id="gothicRelicFilter" x="-20%" y="-20%" width="140%" height="140%">
+              <!-- Detect luminance and amplify -->
+              <feColorMatrix type="matrix" values="
+                0.83  0.83  0.83  0  0
+                0.68  0.68  0.68  0  0
+                0.22  0.22  0.22  0  0
+                1     1     1     0  0" result="goldBase"/>
+              
+              <!-- Subtle blur for holy relic inner aura -->
+              <feGaussianBlur in="goldBase" stdDeviation="3.5" result="holyAura"/>
+              
+              <!-- Merge sharp liturgical gold lines with crimson holy radiance -->
+              <feMerge>
+                <feMergeNode in="holyAura"/>
+                <feMergeNode in="goldBase"/>
+              </feMerge>
+            </filter>
+          </defs>
+
           <!-- Outer Cathedral Halo Rings -->
-          <circle cx="200" cy="200" r="188" fill="none" stroke="currentColor" stroke-dasharray="3 6" opacity="0.65"/>
-          <circle cx="200" cy="200" r="174" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.85"/>
+          <circle cx="200" cy="200" r="188" fill="none" stroke="currentColor" stroke-dasharray="3 6" opacity="0.6"/>
+          <circle cx="200" cy="200" r="174" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
           <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="8 4" opacity="0.5"/>
-          <circle cx="200" cy="200" r="126" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="200" cy="200" r="126" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"/>
+          <circle cx="200" cy="200" r="116" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
 
           <!-- Liturgical Cardinal Axes -->
-          <line x1="200" y1="8" x2="200" y2="392" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-          <line x1="8" y1="200" x2="392" y2="200" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+          <line x1="200" y1="8" x2="200" y2="392" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+          <line x1="8" y1="200" x2="392" y2="200" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+
+          <!-- Diagonal St. Andrew Tracery Lines -->
+          <line x1="64" y1="64" x2="336" y2="336" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 6" opacity="0.25"/>
+          <line x1="336" y1="64" x2="64" y2="336" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 6" opacity="0.25"/>
 
           <!-- Outer Hexagonal Altar Rune Points -->
           <circle cx="200" cy="26" r="3" fill="currentColor"/>
@@ -106,8 +132,11 @@
           <circle cx="26" cy="200" r="3" fill="currentColor"/>
           <circle cx="374" cy="200" r="3" fill="currentColor"/>
 
-          <!-- OFFICIAL BRING ME THE HORIZON LOGO (BMTH_logo.png) EMBEDDED INSIDE SACRED CIRCLE -->
-          <image href="BMTH_logo.png" x="80" y="80" width="240" height="240" class="bmth-png-logo" preserveAspectRatio="xMidYMid meet"/>
+          <!-- OFFICIAL BRING ME THE HORIZON LOGO: Integrated into the sacred geometry with blend mode & relic filter -->
+          <image href="BMTH_logo.png" x="78" y="78" width="244" height="244" 
+                 class="bmth-png-logo" 
+                 filter="url(#gothicRelicFilter)" 
+                 preserveAspectRatio="xMidYMid meet"/>
         </svg>
       </div>
 
