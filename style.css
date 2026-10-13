@@ -156,33 +156,59 @@ body {
 /* HERO SECTION */
 .hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 94vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 8rem 1.5rem 4rem;
-  background: radial-gradient(circle at 50% 35%, rgba(168, 19, 32, 0.12) 0%, transparent 65%);
+  background: 
+    radial-gradient(circle at 50% 25%, rgba(168, 19, 32, 0.28) 0%, rgba(13, 12, 17, 0.8) 60%, #070709 100%),
+    linear-gradient(180deg, #050407 0%, #120910 45%, #070709 100%);
+  overflow: hidden;
+}
+
+/* POST HUMAN NeX GEn CATHEDRAL ARCHITECTURE SILHOUETTE */
+.cathedral-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 85%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  mask-image: linear-gradient(to top, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 65%, transparent 100%);
+}
+
+.cathedral-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 25px rgba(168, 19, 32, 0.35));
 }
 
 .sacred-geometry {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 540px;
-  height: 540px;
+  width: 580px;
+  height: 580px;
   color: var(--gold-gothic);
-  opacity: 0.35;
+  opacity: 0.8;
   pointer-events: none;
-  animation: slowRotate 100s linear infinite;
-  filter: drop-shadow(0 0 15px var(--crimson-glow));
+  z-index: 1;
+  animation: slowRotate 90s linear infinite;
+  filter: drop-shadow(0 0 22px rgba(168, 19, 32, 0.75)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 
-.bmth-unicursal-logo {
-  color: var(--gold-gothic);
-  transition: all 0.5s ease;
+.bmth-png-logo {
+  filter: brightness(1.2) drop-shadow(0 0 12px #d4af37) drop-shadow(0 0 24px rgba(168, 19, 32, 0.9));
+  opacity: 0.92;
 }
 
 @keyframes slowRotate {
