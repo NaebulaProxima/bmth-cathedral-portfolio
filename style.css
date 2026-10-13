@@ -199,28 +199,11 @@ body {
   width: 580px;
   height: 580px;
   color: var(--gold-gothic);
-  opacity: 0.78;
+  opacity: 0.65;
   pointer-events: none;
   z-index: 1;
   animation: slowRotate 90s linear infinite;
   filter: drop-shadow(0 0 16px var(--crimson-glow));
-}
-
-.bmth-png-logo {
-  opacity: 0.92;
-  transition: opacity 0.5s ease;
-  animation: relicPulse 6s ease-in-out infinite alternate;
-}
-
-@keyframes relicPulse {
-  0% {
-    opacity: 0.85;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
-  }
-  100% {
-    opacity: 1;
-    filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 25px rgba(168, 19, 32, 0.7));
-  }
 }
 
 @keyframes slowRotate {
