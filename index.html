@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMTH // POST HUMAN CATHEDRAL — Concert Photography</title>
+  <meta name="description" content="Concert photography portfolio capturing the dark, gothic, and cathedral visuals of Bring Me The Horizon live.">
+  
+  <!-- Google Fonts: Medieval & Gothic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;800&family=UnifrakturMaguntia&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Atmospheric FX -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="cathedral-dust" id="particles" aria-hidden="true"></div>
+  <div class="vignette-layer" aria-hidden="true"></div>
+
+  <!-- Audio Atmosphere Trigger (Synthesized gothic drone using Web Audio API) -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="cross-symbol">✝</span>
+      <span class="brand-text">NEXUS_GEN_CATHEDRAL</span>
+      <span class="cross-symbol">✝</span>
+    </div>
+    <div class="nav-controls">
+      <button id="audio-toggle" class="gothic-btn sound-btn" aria-label="Toggle cathedral ambient drone">
+        <span class="icon">☩</span>
+        <span class="btn-text">AMBIENT : OFF</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="sacred-geometry">
+        <svg viewBox="0 0 400 400" class="halo-circle">
+          <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" stroke-dasharray="4 8"/>
+          <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" stroke-width="1"/>
+          <polygon points="200,30 347,115 347,285 200,370 53,285 53,115" fill="none" stroke="currentColor" opacity="0.4"/>
+          <polygon points="200,60 321,130 321,270 200,340 79,270 79,130" fill="none" stroke="currentColor" opacity="0.25"/>
+          <line x1="200" y1="20" x2="200" y2="380" stroke="currentColor" opacity="0.3"/>
+          <line x1="20" y1="200" x2="380" y2="200" stroke="currentColor" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <div class="liturgical-sub">L I V E &bull; R I T U A L &bull; C H R O N I C L E S</div>
+        <h1 class="hero-title gothic-heading">
+          <span class="title-sub">BRING ME THE HORIZON</span>
+          <span class="title-main">CATHEDRAL OF THE DAMNED</span>
+        </h1>
+        <div class="arch-divider">
+          <span class="latin-script">&ldquo;MEMENTO MORI &bull; POST HUMAN ASCENSION&rdquo;</span>
+        </div>
+        <p class="hero-desc">
+          An immersive photographic chronicle capturing the monolithic stained glass visuals, 
+          brutal dystopian gothic architecture, and raw visceral euphoria of Bring Me The Horizon live.
+        </p>
+
+        <div class="stats-ribbon">
+          <div class="stat-pill">
+            <span class="stat-num">04</span>
+            <span class="stat-lbl">ICONIC FRAMES</span>
+          </div>
+          <div class="separator-cross">🞢</div>
+          <div class="stat-pill">
+            <span class="stat-num">35MM / RAW</span>
+            <span class="stat-lbl">ATMOSPHERE</span>
+          </div>
+          <div class="separator-cross">🞢</div>
+          <div class="stat-pill">
+            <span class="stat-num">4K UHD</span>
+            <span class="stat-lbl">ARCHIVAL SIGHTS</span>
+          </div>
+        </div>
+      </div>
+      
+      <a href="#gallery" class="scroll-indicator" aria-label="Scroll down to gallery">
+        <span class="scroll-arrow">&#x2193;</span>
+        <span class="scroll-label">ENTER THE NAVE</span>
+      </a>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" class="gallery-section">
+      <div class="section-header">
+        <div class="section-tag">ARCHIVAL VAULT</div>
+        <h2 class="section-title">SACRED RELICS &amp; FLAMES</h2>
+        <div class="ornament-line">
+          <span class="ornament-leaf">❧</span>
+          <span class="ornament-cross">✠</span>
+          <span class="ornament-leaf reverse">❧</span>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- ITEM 1 -->
+        <article class="cathedral-card" data-index="0" data-full="IMG_4373.jpg" data-title="THE NAVE AWAKENS" data-verse="CAN YOU FEEL MY HEART // LITURGY I" data-desc="The monolithic stage towers alive in blood-red hues and deep cathedral shadows as the first chords reverberate across the congregation.">
+          <div class="card-arch-frame">
+            <div class="arch-top-svg">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M 0,24 Q 50,-8 100,24 Z" fill="#07070a"/>
+              </svg>
+            </div>
+            <div class="image-wrapper">
+              <img src="optimized/IMG_4373.jpg" alt="Bring Me The Horizon stage cathedral visuals 1" loading="lazy">
+              <div class="card-overlay">
+                <span class="expand-prompt">INSPECT RELIC &bull; ✠</span>
+              </div>
+            </div>
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+          </div>
+          <div class="card-meta">
+            <div class="card-order">STATION I</div>
+            <h3 class="card-title">THE NAVE AWAKENS</h3>
+            <p class="card-caption">Can You Feel My Heart &mdash; Cathedral opening lighting and haze.</p>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="cathedral-card" data-index="1" data-full="IMG_4423.jpg" data-title="STAINED GLASS ASCENSION" data-verse="SHADOW MOSES // SANCTUARY OF STONE" data-desc="Colossal cyber-gothic arches pierce the smoke. Visuals of medieval cathedral pillars fusing with post-human digital distortion.">
+          <div class="card-arch-frame">
+            <div class="arch-top-svg">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M 0,24 Q 50,-8 100,24 Z" fill="#07070a"/>
+              </svg>
+            </div>
+            <div class="image-wrapper">
+              <img src="optimized/IMG_4423.jpg" alt="Bring Me The Horizon gothic cathedral pillar visuals" loading="lazy">
+              <div class="card-overlay">
+                <span class="expand-prompt">INSPECT RELIC &bull; ✠</span>
+              </div>
+            </div>
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+          </div>
+          <div class="card-meta">
+            <div class="card-order">STATION II</div>
+            <h3 class="card-title">STAINED GLASS ASCENSION</h3>
+            <p class="card-caption">Monolithic cathedral pillars framing Oli Sykes amid crimson lasers.</p>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="cathedral-card" data-index="2" data-full="IMG_4428.jpg" data-title="ALTAR OF BURNING GLASS" data-verse="AMEN! // APOCALYPTIC RITUAL" data-desc="Intense holy fire, blast beats and religious iconography warping on gigantic LED cathedrals under blinding pyro.">
+          <div class="card-arch-frame">
+            <div class="arch-top-svg">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M 0,24 Q 50,-8 100,24 Z" fill="#07070a"/>
+              </svg>
+            </div>
+            <div class="image-wrapper">
+              <img src="optimized/IMG_4428.jpg" alt="Bring Me The Horizon stage altar visuals" loading="lazy">
+              <div class="card-overlay">
+                <span class="expand-prompt">INSPECT RELIC &bull; ✠</span>
+              </div>
+            </div>
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+          </div>
+          <div class="card-meta">
+            <div class="card-order">STATION III</div>
+            <h3 class="card-title">ALTAR OF BURNING GLASS</h3>
+            <p class="card-caption">Visual climax where medieval liturgy collides with cyberpunk metalcore.</p>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="cathedral-card" data-index="3" data-full="IMG_4450.jpg" data-title="COMMUNION OF ASHES" data-verse="THRONE // REQUIEM FOR THE LOST" data-desc="The collective euphoria of thousands chanting back every verse in the cathedral glow as ash falls over the pit.">
+          <div class="card-arch-frame">
+            <div class="arch-top-svg">
+              <svg viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M 0,24 Q 50,-8 100,24 Z" fill="#07070a"/>
+              </svg>
+            </div>
+            <div class="image-wrapper">
+              <img src="optimized/IMG_4450.jpg" alt="Bring Me The Horizon encore and crowd communion" loading="lazy">
+              <div class="card-overlay">
+                <span class="expand-prompt">INSPECT RELIC &bull; ✠</span>
+              </div>
+            </div>
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+          </div>
+          <div class="card-meta">
+            <div class="card-order">STATION IV</div>
+            <h3 class="card-title">COMMUNION OF ASHES</h3>
+            <p class="card-caption">The finale encore. Pure smoke, blinding strobes, and communion.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GOTHIC QUOTE / MANIFESTO -->
+    <section class="liturgy-section">
+      <div class="gothic-frame-box">
+        <div class="frame-edge top"></div>
+        <div class="frame-edge right"></div>
+        <div class="frame-edge bottom"></div>
+        <div class="frame-edge left"></div>
+        <div class="cross-accent">✠</div>
+        <blockquote class="cathedral-quote">
+          &ldquo;EVERY SYSTEM WE BUILT HAS CRUMBLED INTO ASH.<br>
+          ONLY THE CATHEDRAL OF SOUND REMAINS.&rdquo;
+        </blockquote>
+        <div class="quote-cite">&mdash; POST HUMAN ARCHIVES &bull; LIVE WITNESS &mdash;</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <dialog id="lightbox" class="lightbox-modal">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-window">
+      <button class="lightbox-close gothic-btn" id="lightbox-close" aria-label="Close viewer">✕ CLOSE</button>
+      
+      <div class="lightbox-arch">
+        <img id="lightbox-img" src="" alt="Full concert photo view">
+      </div>
+
+      <div class="lightbox-details">
+        <div class="lightbox-verse" id="lightbox-verse">CAN YOU FEEL MY HEART</div>
+        <h2 class="lightbox-title gothic-heading" id="lightbox-title">THE NAVE AWAKENS</h2>
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+        <div class="lightbox-actions">
+          <a id="lightbox-raw-btn" href="#" target="_blank" download class="gothic-btn">DOWNLOAD ORIGINAL RAW / 4K</a>
+          <div class="nav-arrows">
+            <button id="lightbox-prev" class="gothic-btn" aria-label="Previous photo">&larr; PREV</button>
+            <button id="lightbox-next" class="gothic-btn" aria-label="Next photo">NEXT &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="cathedral-footer">
+    <div class="footer-cross">☩ &bull; ✠ &bull; ☩</div>
+    <p class="footer-title">BRING ME THE HORIZON // CONCERT ARCHIVE</p>
+    <p class="footer-sub">Captured live from the altar. Designed with Medieval Cathedral aesthetics.</p>
+    <div class="footer-links">
+      <span>READY FOR GITHUB &amp; VERCEL DEPLOYMENT</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
