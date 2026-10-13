@@ -1,0 +1,694 @@
+:root {
+  --bg-abyss: #070709;
+  --bg-cathedral: #0d0c11;
+  --bg-card: #121017;
+  --bg-card-hover: #17151e;
+  
+  --crimson: #a81320;
+  --crimson-glow: rgba(168, 19, 32, 0.45);
+  --gold-gothic: #d4af37;
+  --gold-subtle: #9c8227;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  
+  --stone-text: #eae6df;
+  --stone-muted: #8e8994;
+  --stone-dark: #3a3642;
+  --border-gothic: #2b2734;
+  
+  --font-gothic-display: 'Cinzel Decorative', serif;
+  --font-medieval: 'UnifrakturMaguntia', cursive;
+  --font-serif: 'Cinzel', serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-abyss);
+  color: var(--stone-text);
+  font-family: var(--font-body);
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Background Atmospheric Noise & Texture */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.vignette-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.cathedral-dust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: var(--gold-gothic);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: floatUp 14s infinite linear;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) scale(0.5);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.45;
+  }
+  80% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-5vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* TOP NAVIGATION */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  z-index: 80;
+  background: rgba(7, 7, 9, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-gothic);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-gothic);
+}
+
+.cross-symbol {
+  font-size: 1.1rem;
+  color: var(--crimson);
+  text-shadow: 0 0 10px var(--crimson-glow);
+}
+
+.gothic-btn {
+  background: transparent;
+  color: var(--stone-text);
+  border: 1px solid var(--gold-subtle);
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gothic-btn:hover {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: #fff;
+  box-shadow: 0 0 20px var(--crimson-glow);
+  transform: translateY(-1px);
+}
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
+  background: radial-gradient(circle at 50% 35%, rgba(168, 19, 32, 0.12) 0%, transparent 65%);
+}
+
+.sacred-geometry {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  color: var(--gold-gothic);
+  opacity: 0.25;
+  pointer-events: none;
+  animation: slowRotate 120s linear infinite;
+}
+
+@keyframes slowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.halo-circle {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.liturgical-sub {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-gothic);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.title-sub {
+  font-family: var(--font-medieval);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--crimson);
+  text-shadow: 0 0 25px rgba(168, 19, 32, 0.6);
+  line-height: 1;
+}
+
+.title-main {
+  font-family: var(--font-gothic-display);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #f7f4ed;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+}
+
+.arch-divider {
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.latin-script {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  color: var(--stone-muted);
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 1.2rem;
+  color: var(--stone-muted);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+
+.stats-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(18, 16, 23, 0.6);
+  border: 1px solid var(--border-gothic);
+  border-radius: 2px;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-num {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-gothic);
+}
+
+.stat-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--stone-muted);
+}
+
+.separator-cross {
+  color: var(--crimson);
+  font-size: 0.9rem;
+}
+
+.scroll-indicator {
+  margin-top: 3.5rem;
+  text-decoration: none;
+  color: var(--stone-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  transition: color 0.3s;
+}
+
+.scroll-indicator:hover {
+  color: var(--gold-gothic);
+}
+
+.scroll-arrow {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* GALLERY SECTION */
+.gallery-section {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--crimson);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-gothic-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: 0.15em;
+  color: var(--stone-text);
+  margin-bottom: 0.75rem;
+}
+
+.ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--gold-gothic);
+  font-size: 1.2rem;
+}
+
+.ornament-leaf.reverse {
+  transform: scaleX(-1);
+}
+
+/* Gothic Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Cathedral Pointed Arch Photo Frame */
+.cathedral-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gothic);
+  padding: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cathedral-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-subtle);
+  background: var(--bg-card-hover);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px var(--crimson-glow);
+}
+
+.card-arch-frame {
+  position: relative;
+  border: 1px solid var(--border-gothic);
+  padding: 0.5rem;
+  background: #09080c;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.arch-top-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.image-wrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #000;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
+  filter: contrast(1.08) brightness(0.95);
+}
+
+.cathedral-card:hover .image-wrapper img {
+  transform: scale(1.05);
+  filter: contrast(1.15) brightness(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7, 7, 9, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cathedral-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.expand-prompt {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-gothic);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--gold-subtle);
+}
+
+/* Card Decorative Corner Accents */
+.card-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--gold-gothic);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.corner-tl { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+.corner-tr { top: 4px; right: 4px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 4px; left: 4px; border-right: none; border-top: none; }
+.corner-br { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+.card-meta {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card-order {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--crimson);
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.card-caption {
+  font-size: 0.95rem;
+  color: var(--stone-muted);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* LITURGY / MANIFESTO */
+.liturgy-section {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(168, 19, 32, 0.08) 0%, transparent 70%);
+}
+
+.gothic-frame-box {
+  position: relative;
+  max-width: 800px;
+  text-align: center;
+  padding: 3.5rem 3rem;
+  border: 1px solid var(--border-gothic);
+  background: rgba(13, 12, 17, 0.7);
+}
+
+.cross-accent {
+  font-size: 2rem;
+  color: var(--gold-gothic);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px var(--gold-glow);
+}
+
+.cathedral-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  color: #f0ece1;
+  margin-bottom: 1.5rem;
+}
+
+.quote-cite {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--crimson);
+}
+
+/* LIGHTBOX MODAL */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  background: transparent;
+  border: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.lightbox-modal[open] {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 4, 6, 0.93);
+  backdrop-filter: blur(16px);
+}
+
+.lightbox-window {
+  position: relative;
+  z-index: 2;
+  background: #0f0d14;
+  border: 1px solid var(--gold-subtle);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px var(--crimson-glow);
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  overflow: hidden;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.lightbox-arch {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 80vh;
+}
+
+.lightbox-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lightbox-details {
+  padding: 3rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.lightbox-verse {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-gothic);
+  margin-bottom: 0.75rem;
+}
+
+.lightbox-title {
+  font-size: 1.75rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+
+.lightbox-desc {
+  font-size: 1.05rem;
+  color: var(--stone-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.lightbox-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-arrows .gothic-btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* FOOTER */
+.cathedral-footer {
+  text-align: center;
+  padding: 4rem 1.5rem 5rem;
+  border-top: 1px solid var(--border-gothic);
+  background: #050507;
+}
+
+.footer-cross {
+  color: var(--crimson);
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  margin-bottom: 1rem;
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  letter-spacing: 0.25em;
+  font-size: 0.95rem;
+  color: #eae6df;
+  margin-bottom: 0.5rem;
+}
+
+.footer-sub {
+  font-size: 0.9rem;
+  color: var(--stone-muted);
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-subtle);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .lightbox-window {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .lightbox-arch {
+    max-height: 45vh;
+  }
+  .lightbox-details {
+    padding: 1.5rem;
+  }
+  .top-nav {
+    padding: 0 1rem;
+  }
+}
