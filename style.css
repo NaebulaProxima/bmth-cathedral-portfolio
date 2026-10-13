@@ -199,16 +199,29 @@ body {
   width: 580px;
   height: 580px;
   color: var(--gold-gothic);
-  opacity: 0.8;
+  opacity: 0.78;
   pointer-events: none;
   z-index: 1;
   animation: slowRotate 90s linear infinite;
-  filter: drop-shadow(0 0 22px rgba(168, 19, 32, 0.75)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+  filter: drop-shadow(0 0 16px var(--crimson-glow));
 }
 
 .bmth-png-logo {
-  filter: brightness(1.2) drop-shadow(0 0 12px #d4af37) drop-shadow(0 0 24px rgba(168, 19, 32, 0.9));
-  opacity: 0.92;
+  mix-blend-mode: screen;
+  opacity: 0.88;
+  transition: opacity 0.5s ease;
+  animation: relicPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes relicPulse {
+  0% {
+    opacity: 0.72;
+    filter: url(#gothicRelicFilter) drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  }
+  100% {
+    opacity: 0.95;
+    filter: url(#gothicRelicFilter) drop-shadow(0 0 20px rgba(168, 19, 32, 0.8)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+  }
 }
 
 @keyframes slowRotate {
